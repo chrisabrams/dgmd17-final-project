@@ -1,0 +1,293 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/chris.abrams/Dropbox/Harvard/DGMD 17/final-project/Drone Land
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+54413
+Successfully changed project path to: /Users/chris.abrams/Dropbox/Harvard/DGMD 17/final-project/Drone Land
+/Users/chris.abrams/Dropbox/Harvard/DGMD 17/final-project/Drone Land
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 69.56 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.12f1 (b3b2c6512326)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/chris.abrams/Dropbox/Harvard/DGMD 17/final-project/Drone Land/Assets
+GfxDevice: creating device client; threaded=0
+2021-07-22 20:16:03.869 Unity[40280:20822752] LG HDR 4K preferred device: AMD Radeon Pro 5500M (high power)
+2021-07-22 20:16:03.869 Unity[40280:20822752] Metal devices available: 2
+2021-07-22 20:16:03.869 Unity[40280:20822752] 0: AMD Radeon Pro 5500M (high power)
+2021-07-22 20:16:03.869 Unity[40280:20822752] 1: Intel(R) UHD Graphics 630 (low power)
+2021-07-22 20:16:03.870 Unity[40280:20822752] Using device AMD Radeon Pro 5500M (high power)
+Initializing Metal device caps: AMD Radeon Pro 5500M
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56280
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.12f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.12f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003300 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 57.12 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.154 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.010224 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 61.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.011 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2749 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 228.6 MB.
+System memory in use after: 228.7 MB.
+
+Unloading 138 unused Assets to reduce memory usage. Loaded Objects now: 3160.
+Total: 4.193323 ms (FindLiveObjects: 0.589972 ms CreateObjectMapping: 0.239229 ms MarkObjects: 3.096103 ms  DeleteObjects: 0.266968 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: b23960f63f64bdc6ff669e2cdcee2391 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Karting/Tutorials/Unity.Karting.Tutorials.asmdef
+  artifactKey: Guid(85246831d3410134ab2bd1cd1523830c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting/Tutorials/Unity.Karting.Tutorials.asmdef using Guid(85246831d3410134ab2bd1cd1523830c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2d2d317729ca41fa60a24281e107f5b') in 0.261295 seconds 
+  Import took 0.265455 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Karting/Tutorials/Tutorials.asset
+  artifactKey: Guid(08f5116c6f71aa548a00fbd1f56fa92e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting/Tutorials/Tutorials.asset using Guid(08f5116c6f71aa548a00fbd1f56fa92e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a3709698d2924d28bef5cf0008614e2') in 0.396748 seconds 
+  Import took 0.401795 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/Karting/Tutorials/Tutorial Project Settings.asset
+  artifactKey: Guid(7e7ff6d40365f43b282454f6d57a0ead) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting/Tutorials/Tutorial Project Settings.asset using Guid(7e7ff6d40365f43b282454f6d57a0ead) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c38b61304f3412e8210266e1929cbe48') in 0.190853 seconds 
+  Import took 0.194927 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000145 seconds.
+  path: Assets/Karting/Tutorials/TutorialCallbacks.asset
+  artifactKey: Guid(8624a904984c90d4b9b816ca2b211db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting/Tutorials/TutorialCallbacks.asset using Guid(8624a904984c90d4b9b816ca2b211db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a97e305ddb9ed418d4ff1c0c9b19e05e') in 0.009071 seconds 
+  Import took 0.012908 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Karting/Tutorials/DialogHeader_Kart.png
+  artifactKey: Guid(128afd373c6f34f43bd58b7bd0815ec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting/Tutorials/DialogHeader_Kart.png using Guid(128afd373c6f34f43bd58b7bd0815ec9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '963abb6c48080233573eddbc8ff9dc41') in 0.474215 seconds 
+  Import took 0.478268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Karting/Tutorials/WelcomeDialog.asset
+  artifactKey: Guid(52f0f4a57417740ea92501a52d39a8ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting/Tutorials/WelcomeDialog.asset using Guid(52f0f4a57417740ea92501a52d39a8ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36e39543b3117acae716ae8724b9e49a') in 0.002474 seconds 
+  Import took 0.006422 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000161 seconds.
+  path: Assets/Karting/Tutorials
+  artifactKey: Guid(c4f60585933b24e06a3e11a5aaf2c6d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting/Tutorials using Guid(c4f60585933b24e06a3e11a5aaf2c6d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe5235ab010c148e4743fdfa585c759d') in 0.000735 seconds 
+  Import took 0.004186 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Assets/Karting
+  artifactKey: Guid(5b37cab98afac4ca696e7a5c19dec454) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting using Guid(5b37cab98afac4ca696e7a5c19dec454) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7c68ae32b9bcbd1a2db5e8c5e7f1307') in 0.001039 seconds 
+  Import took 0.004610 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000133 seconds.
+  path: Assets/Karting/Tutorials/TutorialHeader.png
+  artifactKey: Guid(1c7aa536c503744ffafe54d893a5816b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting/Tutorials/TutorialHeader.png using Guid(1c7aa536c503744ffafe54d893a5816b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08ece6b3734e388f19412c29ef8ef409') in 0.010543 seconds 
+  Import took 0.014548 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.011927 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.75 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:114)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.709 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2676 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 238.2 MB.
+System memory in use after: 238.4 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 3171.
+Total: 3.098781 ms (FindLiveObjects: 0.313121 ms CreateObjectMapping: 0.139962 ms MarkObjects: 2.551942 ms  DeleteObjects: 0.092902 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: b23960f63f64bdc6ff669e2cdcee2391 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 138.471876 seconds.
+  path: Assets/Karting/Scenes
+  artifactKey: Guid(2d9368ff4695049bc9d47fc5d53d88a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting/Scenes using Guid(2d9368ff4695049bc9d47fc5d53d88a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73194a97c162a5913118ce2eb8a5acaf') in 0.004437 seconds 
+  Import took 0.009056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.492684 seconds.
+  path: Assets/Karting/Scenes/MainScene.unity
+  artifactKey: Guid(92786e23da2af4a4f8803aaf44c47121) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Karting/Scenes/MainScene.unity using Guid(92786e23da2af4a4f8803aaf44c47121) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ef288f06d5d4d5502ba659290cdc107') in 0.005632 seconds 
+  Import took 0.010570 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010264 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:114)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.515 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.58 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2676 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 238.6 MB.
+System memory in use after: 238.7 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 3175.
+Total: 2.427511 ms (FindLiveObjects: 0.309271 ms CreateObjectMapping: 0.099290 ms MarkObjects: 1.949815 ms  DeleteObjects: 0.068453 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: b23960f63f64bdc6ff669e2cdcee2391 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.010600 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:114)
+
+[/Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs line 37]
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.807 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2676 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 238.9 MB.
+System memory in use after: 239.0 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 3179.
+Total: 3.277170 ms (FindLiveObjects: 0.524419 ms CreateObjectMapping: 0.217384 ms MarkObjects: 2.449566 ms  DeleteObjects: 0.084918 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: b23960f63f64bdc6ff669e2cdcee2391 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
