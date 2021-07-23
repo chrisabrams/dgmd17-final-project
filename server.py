@@ -1,28 +1,62 @@
-# Created by Youssef Elashry to allow two-way communication between Python3 and Unity to send and receive strings
-
-# Feel free to use this in your individual or commercial projects BUT make sure to reference me as: Two-way communication between Python 3 and Unity (C#) - Y. T. Elashry
-# It would be appreciated if you send me how you have used this in your projects (e.g. Machine Learning) at youssef.elashry@gmail.com
-
-# Use at your own risk
-# Use under the Apache License 2.0
-
-# Example of a Python UDP server
-
 import UdpComms as U
 import time
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import numpy as np
+import os
 
 # Create UDP socket to use for sending (and receiving)
 sock = U.UdpComms(udpIP="127.0.0.1", portTX=8000, portRX=8001, enableRX=True, suppressWarnings=True)
 
-i = 0
+def process_image(imagePath):
+    image = None
+    file_path = os.path.join(imagePath)
 
+    try:
+        image = mpimg.imread(imagePath)
+    except:
+        print(f'Cannot read file at: {file_path}')
+        return
+
+    print(f'Processing file at: {file_path}')
+
+    # Grab the x and y size and make a copy of the image
+    ysize = image.shape[0]
+    xsize = image.shape[1]
+    color_select = np.copy(image)
+
+    # Define color selection criteria
+    ###### MODIFY THESE VARIABLES TO MAKE YOUR COLOR SELECTION
+    red_threshold = 200
+    green_threshold = 200
+    blue_threshold = 200
+    ######
+
+    rgb_threshold = [red_threshold, green_threshold, blue_threshold]
+
+    # Do a boolean or with the "|" character to identify
+    # pixels below the thresholds
+    thresholds = (image[:,:,0] < rgb_threshold[0]) \
+                | (image[:,:,1] < rgb_threshold[1]) \
+                | (image[:,:,2] < rgb_threshold[2])
+    color_select[thresholds] = [0,0,0]
+
+    # mpimg.imsave("1.png", color_select)
+
+    # Make a decision/determination and send it to Unity
+
+    # sock.SendData("") # Send this string to Unity
+
+i = 0
 while True:
-    sock.SendData('Sent from Python: ' + str(i)) # Send this string to other application
+    # sock.SendData("Sent from Python: " + str(i)) # Send this string to Unity
     i += 1
 
     data = sock.ReadReceivedData() # read data
 
     if data != None: # if NEW data has been received since last ReadReceivedData function call
-        print(data) # print new received data
+        print("Loading image: " + data)
+        time.sleep(0.1) # Wait a little bit for image to load
+        process_image(data)
 
     time.sleep(1)

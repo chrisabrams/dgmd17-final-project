@@ -1,17 +1,3 @@
-/*
-Created by Youssef Elashry to allow two-way communication between Python3 and Unity to send and receive strings
-
-Feel free to use this in your individual or commercial projects BUT make sure to reference me as: Two-way communication between Python 3 and Unity (C#) - Y. T. Elashry
-It would be appreciated if you send me how you have used this in your projects (e.g. Machine Learning) at youssef.elashry@gmail.com
-
-Use at your own risk
-Use under the Apache License 2.0
-
-Modified by: 
-Youssef Elashry 12/2020 (replaced obsolete functions and improved further - works with Python as well)
-Based on older work by Sandra Fang 2016 - Unity3D to MATLAB UDP communication - [url]http://msdn.microsoft.com/de-de/library/bb979228.aspx#ID0E3BAC[/url]
-*/
-
 using UnityEngine;
 using System.Collections;
 using System;
@@ -94,7 +80,7 @@ public class UdpSocket : MonoBehaviour
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] data = client.Receive(ref anyIP);
                 string text = Encoding.UTF8.GetString(data);
-                print(">> " + text);
+                print("String from Python: " + text);
                 ProcessInput(text);
             }
             catch (Exception err)
@@ -107,7 +93,7 @@ public class UdpSocket : MonoBehaviour
     private void ProcessInput(string input)
     {
         // PROCESS INPUT RECEIVED STRING HERE
-        pythonTest.UpdatePythonRcvdText(input); // Update text by string received from python
+        OnPythonMessage(input);
 
         if (!isTxStarted) // First data arrived so tx started
         {
@@ -122,6 +108,12 @@ public class UdpSocket : MonoBehaviour
             receiveThread.Abort();
 
         client.Close();
+    }
+
+    // We have received data from Python, do something in Unity such as move the controller/driver
+    public void OnPythonMessage(string input)
+    {
+        // pythonTest.UpdatePythonRcvdText(input); // Update text by string received from python
     }
 
 }

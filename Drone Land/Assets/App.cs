@@ -3,15 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 public class App : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI pythonRcvdText = null;
-    [SerializeField] TextMeshProUGUI sendToPythonText = null;
+    // [SerializeField] TextMeshProUGUI pythonRcvdText = null;
+    // [SerializeField] TextMeshProUGUI sendToPythonText = null;
 
     private Camera debugCamera;
 
     string tempStr = "Sent from Python xxxx";
+    string receivedText = "";
+    string sendText = "";
     int numToSendToPython = 0;
 
     public int resHeight = 1080;
@@ -40,13 +41,15 @@ public class App : MonoBehaviour
     {
         udpSocket.SendData("Sent From Unity: " + numToSendToPython.ToString());
         numToSendToPython++;
-        sendToPythonText.text = "Send Number: " + numToSendToPython.ToString();
+        // sendToPythonText.text = "Send Number: " + numToSendToPython.ToString();
+        sendText = "Send Number: " + numToSendToPython.ToString();
     }
 
     private void Start()
     {
         udpSocket = FindObjectOfType<UdpSocket>();
-        sendToPythonText.text = "Send Number: " + numToSendToPython.ToString();
+        // sendToPythonText.text = "Send Number: " + numToSendToPython.ToString();
+        sendText = "Send Number: " + numToSendToPython.ToString();
     }
 
     public void Resize(Texture2D texture2D, int targetX, int targetY, bool mipmap = true, FilterMode filter = FilterMode.Bilinear)
@@ -97,7 +100,7 @@ public class App : MonoBehaviour
 
     void Update()
     {
-        pythonRcvdText.text = tempStr;
+        receivedText = tempStr;
     }
 
     public void LateUpdate()
