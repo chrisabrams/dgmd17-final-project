@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+Script used for keeping track of time
+*/
+
 public class TimerText : MonoBehaviour
 {
     public Text timerText;

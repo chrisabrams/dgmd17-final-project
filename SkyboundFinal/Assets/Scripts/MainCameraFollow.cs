@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/*
+Used to make camera follow drone
+*/
+
 public class MainCameraFollow : MonoBehaviour
 {
     public Transform target;
