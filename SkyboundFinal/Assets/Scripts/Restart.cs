@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/*
+Script for restart button on EndScreen
+*/
+
 public class Restart : MonoBehaviour
 {
     public Button restartBtn;
