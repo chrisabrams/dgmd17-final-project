@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 public class DroneMovement : MonoBehaviour
 {
     public float movementSpeed = .1f;
-    public float forwardSpeed = .1f;
-    public float rayCastOffset = 2.5f;
+    public float forwardSpeed = 3f;
+    public float rayCastOffset = 3f;
     public float detectionDist = 20f;
-    public float droneCorrectionConstant = 5f;
-    public float gravityCorrectionConstant = 4f;
+    public float droneCorrectionConstant = 6f;
+    public float gravityCorrectionConstant = 3.5f;
 
     private Rigidbody rb;
 
@@ -49,33 +49,37 @@ public class DroneMovement : MonoBehaviour
         Vector3 forward = transform.position - transform.forward * rayCastOffset;
         Vector3 backward = transform.position + transform.forward * rayCastOffset;
         Vector3 up = transform.position + transform.up * rayCastOffset;
-        Vector3 down = transform.position - transform.up * rayCastOffset;
+        Vector3 down = transform.position - transform.up * rayCastOffset; down.y += .6f;
 
-        Vector3 forwardDirVec = new Vector3(-1f, 0f, .3f);
-        Vector3 backDirVec = new Vector3(-1f, 0f, -.3f);
+        Vector3 forwardUpDirVec = new Vector3(-1f, .05f, .3f);
+        Vector3 forwardDownDirVec = new Vector3(-1f, -.05f, .3f);
+        Vector3 backUpDirVec = new Vector3(-1f, .05f, -.3f);
+        Vector3 backDownDirVec = new Vector3(-1f, -.05f, -.3f);
         Vector3 upDirVec = new Vector3(-1f, .3f, 0f);
         Vector3 downDirVec = new Vector3(-1f, -.3f, 0f);
 
-        Debug.DrawRay(forward, forwardDirVec*detectionDist, Color.blue);
-        Debug.DrawRay(backward, backDirVec*detectionDist, Color.blue);
+        Debug.DrawRay(forward, forwardUpDirVec*detectionDist, Color.yellow);
+        Debug.DrawRay(forward, forwardDownDirVec*detectionDist, Color.yellow);
+        Debug.DrawRay(backward, backUpDirVec*detectionDist, Color.blue);
+        Debug.DrawRay(backward, backDownDirVec*detectionDist, Color.blue);
         Debug.DrawRay(up, upDirVec*detectionDist, Color.red);
         Debug.DrawRay(down, downDirVec*detectionDist, Color.red);
 
-
-        if(Physics.Raycast(forward, forwardDirVec, out hit, detectionDist)){
+        if(Physics.Raycast(forward, forwardUpDirVec, out hit, detectionDist) || Physics.Raycast(forward, forwardDownDirVec, out hit, detectionDist)){
             raycastOffset -= Vector3.forward * droneCorrectionConstant;
         }
-        else if(Physics.Raycast(backward, backDirVec, out hit, detectionDist)){
+        if(Physics.Raycast(backward, backUpDirVec, out hit, detectionDist) || Physics.Raycast(backward, backDownDirVec, out hit, detectionDist)){
             raycastOffset += Vector3.forward * droneCorrectionConstant;
         }
+
         if(Physics.Raycast(up, upDirVec, out hit, detectionDist)){
             raycastOffset -= Vector3.up * droneCorrectionConstant;
         }
-        else if(Physics.Raycast(down, downDirVec, out hit, detectionDist)){
+        if(Physics.Raycast(down, downDirVec, out hit, detectionDist)){
             raycastOffset += Vector3.up * droneCorrectionConstant;
         }
 
-        Debug.Log(transform.right);
+        Debug.Log(raycastOffset);
         rb.AddForce(raycastOffset);
     }
 }
