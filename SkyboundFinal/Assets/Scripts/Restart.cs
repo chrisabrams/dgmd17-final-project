@@ -25,7 +25,8 @@ public class Restart : MonoBehaviour
         SceneManager.LoadScene("Simulation", LoadSceneMode.Single);
 
         // MoveDrone(31.1f, -0.88f, -38.65f); // Course 1
-        MoveDrone(259.4f, 39.7f, 265f); // Course 1
+        // MoveDrone(259.4f, 39.7f, 265f); // Course 2
+        MoveDrone(828.1f, 174.1f, 1133f);
     }
 
     void MoveDrone(float x, float y, float z) {
