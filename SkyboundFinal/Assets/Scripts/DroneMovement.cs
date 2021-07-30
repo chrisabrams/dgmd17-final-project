@@ -79,7 +79,7 @@ public class DroneMovement : MonoBehaviour
             raycastOffset += Vector3.up * droneCorrectionConstant;
         }
 
-        Debug.Log(raycastOffset);
+        // Debug.Log(raycastOffset);
         rb.AddForce(raycastOffset);
     }
 }
