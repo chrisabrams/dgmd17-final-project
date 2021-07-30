@@ -12,6 +12,7 @@ TODO: Once we get more levels, store all the times and display them at the end
 public class DataManager : MonoBehaviour
 {
     public string timeElapsed;
+    public GameObject menu;
 
     void Awake(){
         DontDestroyOnLoad(transform.gameObject);
@@ -24,5 +25,10 @@ public class DataManager : MonoBehaviour
         }
         catch(Exception e){
         }
+    }
+
+    public void Disable()
+    {
+        menu.SetActive(false);
     }
 }
