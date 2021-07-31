@@ -7,25 +7,62 @@ using System;
 public class Menu : MonoBehaviour
 {
     public DroneMovement drone;
-    public InputField speedInputField;
-    public InputField correctionInputField;
+    public InputField detectionInputField;
+    public InputField fSpeedInputField;
+    public InputField tSpeedInputField;
     public Dropdown courseDropDown;
     public DataManager dataManager;
+    public Canvas menu;
 
-    private void Awake() {
+    private string[] detRadText = {
+        "// Recommended Range (12-18)",
+        "// Recommended Range (125-200)",
+        "// Recommended Range (250-325)"
+    };
+    private string[] forSpeedText = {
+        "// Recommended Range (2-8)",
+        "// Recommended Range (6-12)",
+        "// Recommended Range (12-20)"
+    };
+    private string[] turnSpeedText = {
+        "// Recommended Range (8-16)",
+        "// Recommended Range (12-20)",
+        "// Recommended Range (24-48)"
+    };
+    //in form size, rayCastOffset, gravityCorrectionConstant
+    private float[,] otherParams = {
+        {.4f, 2.5f, 8f},
+        {.33f, 6f, 3.5f},
+        {1f, 9f, 7f}
+    };
+    private bool[] velocityCorrection = {false, true, true};
+
+
+    void Awake() {
         Time.timeScale = 0;
-        // dataManager = GameObject.GetComponent<DataManager>();
+        
+        //Remove if not recording video
+        QualitySettings.vSyncCount = 0;  
+        Application.targetFrameRate = 45;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         courseDropDown.onValueChanged.AddListener(delegate {dropdown(courseDropDown);});
-    }
+        changeRecommendedValues(0);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //Add Event Listeners
+        var temp = new InputField.SubmitEvent();
+        temp.AddListener(detection);
+        detectionInputField.onEndEdit = temp;
+
+        var temp2 = new InputField.SubmitEvent();
+        temp2.AddListener(fSpeed);
+        fSpeedInputField.onEndEdit = temp2;
+
+        var temp3 = new InputField.SubmitEvent();
+        temp3.AddListener(tSpeed);
+        tSpeedInputField.onEndEdit = temp3;
     }
 
     public void buttonPress() {
@@ -33,7 +70,7 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1;
 
         //turn the menu off
-        dataManager.Disable();
+        Disable();
     }
 
     public void dropdown(Dropdown dropdown) {
@@ -42,39 +79,51 @@ public class Menu : MonoBehaviour
         {
             //course 3
             case 0:
-                drone.transform.position = new Vector3(828.1f,174.1f,1133f);
+                drone.transform.position = new Vector3(28.4f,12f,-46.7f);
+                changeRecommendedValues(0);
                 break;
             //course 2
             case 1:
                 drone.transform.position = new Vector3(288.7f,47.1f,243f);
+                changeRecommendedValues(1);
                 break;
             //course 3
             case 2:
-                drone.transform.position = new Vector3(28.4f,12f,-46.7f);
+                drone.transform.position = new Vector3(828.1f,174.1f,1133f);
+                changeRecommendedValues(2);
                 break;
             default:
                 break;
         }
     }
 
-    public void speed(string speed) {
-        
-        if (Single.TryParse(speedInputField.text, out float result))
-        {
-            var newSpeed = float.Parse(speedInputField.text);
-            drone.forwardSpeed = newSpeed;   
-        }
+    public void detection(string radius) {
+        drone.detectionDist = float.Parse(radius);   
     }
 
-    public void correction(string correctionC) {
-        if (Single.TryParse(correctionInputField.text, out float result)) 
-        {
-            var newCoefficient = float.Parse(correctionInputField.text);
-            drone.droneCorrectionConstant = newCoefficient;
-        }
+    public void fSpeed(string speed) {
+        drone.forwardSpeed = float.Parse(speed); 
     }
 
-    public void numObjects(int num) {
-        //insert neumber of objects
+    public void tSpeed(string speed) {
+        drone.droneCorrectionConstant = float.Parse(speed);
     }
+    
+    void changeRecommendedValues(int id){
+        Text rv1 = GameObject.Find("RecVal1").GetComponent<Text>(); rv1.text = detRadText[id];
+        Text rv2 = GameObject.Find("RecVal2").GetComponent<Text>(); rv2.text = forSpeedText[id];
+        Text rv3 = GameObject.Find("RecVal3").GetComponent<Text>(); rv3.text = turnSpeedText[id];
+
+        drone.droneSize = otherParams[id,0]; 
+        drone.rayCastOffset = otherParams[id,1];
+        drone.gravityCorrectionConstant = otherParams[id,2];
+        drone.enableVelocityControlling = velocityCorrection[id];
+        Debug.Log(drone.enableVelocityControlling);
+    }
+
+    public void Disable()
+    {
+        menu.enabled = false;
+    }
+    
 }
