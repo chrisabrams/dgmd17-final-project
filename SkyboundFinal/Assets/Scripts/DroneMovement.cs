@@ -4,17 +4,20 @@ using UnityEngine.SceneManagement;
 
 public class DroneMovement : MonoBehaviour
 {
-    public float movementSpeed = .1f;
+    public float droneSize = 1f;
     public float forwardSpeed = 3f;
     public float rayCastOffset = 3f;
     public float detectionDist = 20f;
     public float droneCorrectionConstant = 6f;
     public float gravityCorrectionConstant = 3.5f;
+    public bool enableVelocityControlling = true;
 
     private Rigidbody rb;
+    private int counter = 0;
 
     void Start(){
         rb = GetComponent<Rigidbody>();
+        transform.localScale = new Vector3(droneSize, droneSize, droneSize);
     }
 
     void OnCollisionEnter(Collision other){
@@ -26,19 +29,18 @@ public class DroneMovement : MonoBehaviour
 
 
 
-    void Update()
+    void FixedUpdate()
     {
-        //moves player
-        float zDir = Input.GetAxisRaw("Horizontal") * movementSpeed; 
-        float yDir = Input.GetAxisRaw("Vertical") ;
-
         PathFinding();
+        ResetVelocity();
 
         //Uncomment when you want to go manual mode
-
-        //rb.velocity = new Vector3(rb.velocity.x, yDir, zDir) * movementSpeed;
-        //rb.AddForce(new Vector3(-forwardSpeed,yDir*movementSpeed,zDir* movementSpeed/4));
-        //transform.position += new Vector3(-forwardSpeed,yDir* movementSpeed,zDir* movementSpeed);
+        // //moves player
+        // float zDir = Input.GetAxisRaw("Horizontal") * movementSpeed; 
+        // float yDir = Input.GetAxisRaw("Vertical") ;
+        // rb.velocity = new Vector3(rb.velocity.x, yDir, zDir) * movementSpeed;
+        // rb.AddForce(new Vector3(-forwardSpeed,yDir*movementSpeed,zDir* movementSpeed/4));
+        // transform.position += new Vector3(-forwardSpeed,yDir* movementSpeed,zDir* movementSpeed);
     }
 
     void PathFinding(){
@@ -51,35 +53,59 @@ public class DroneMovement : MonoBehaviour
         Vector3 up = transform.position + transform.up * rayCastOffset;
         Vector3 down = transform.position - transform.up * rayCastOffset; down.y += .6f;
 
-        Vector3 forwardUpDirVec = new Vector3(-1f, .05f, .3f);
-        Vector3 forwardDownDirVec = new Vector3(-1f, -.05f, .3f);
-        Vector3 backUpDirVec = new Vector3(-1f, .05f, -.3f);
-        Vector3 backDownDirVec = new Vector3(-1f, -.05f, -.3f);
-        Vector3 upDirVec = new Vector3(-1f, .3f, 0f);
-        Vector3 downDirVec = new Vector3(-1f, -.3f, 0f);
+        //Vector3 forwardUpDirVec = new Vector3(-1f, .05f, .3f);
+        //Vector3 forwardDownDirVec = new Vector3(-1f, -.05f, .3f);
+        //Vector3 backUpDirVec = new Vector3(-1f, .05f, -.3f);
+        //Vector3 backDownDirVec = new Vector3(-1f, -.05f, -.3f);
+        Vector3 forwardDirVec = new Vector3(-1f, 0f, .2f);
+        Vector3 backDirVec = new Vector3(-1f, 0f, -.2f);
+        Vector3 upDirVec = new Vector3(-1f, .35f, 0f);
+        Vector3 downDirVec = new Vector3(-1f, -.35f, 0f);
 
-        Debug.DrawRay(forward, forwardUpDirVec*detectionDist, Color.yellow);
-        Debug.DrawRay(forward, forwardDownDirVec*detectionDist, Color.yellow);
-        Debug.DrawRay(backward, backUpDirVec*detectionDist, Color.blue);
-        Debug.DrawRay(backward, backDownDirVec*detectionDist, Color.blue);
+        Debug.DrawRay(forward, forwardDirVec*detectionDist, Color.blue);
+        Debug.DrawRay(backward, backDirVec*detectionDist, Color.blue);
         Debug.DrawRay(up, upDirVec*detectionDist, Color.red);
         Debug.DrawRay(down, downDirVec*detectionDist, Color.red);
 
-        if(Physics.Raycast(forward, forwardUpDirVec, out hit, detectionDist) || Physics.Raycast(forward, forwardDownDirVec, out hit, detectionDist)){
+        if(Physics.Raycast(forward, forwardDirVec, out hit, detectionDist) && Physics.Raycast(backward, backDirVec, out hit, detectionDist)){
+            raycastOffset += Vector3.up * droneCorrectionConstant;
+        }
+        else if(Physics.Raycast(forward, forwardDirVec, out hit, detectionDist)){
             raycastOffset -= Vector3.forward * droneCorrectionConstant;
         }
-        if(Physics.Raycast(backward, backUpDirVec, out hit, detectionDist) || Physics.Raycast(backward, backDownDirVec, out hit, detectionDist)){
+        else if(Physics.Raycast(backward, backDirVec, out hit, detectionDist)){
             raycastOffset += Vector3.forward * droneCorrectionConstant;
         }
 
-        if(Physics.Raycast(up, upDirVec, out hit, detectionDist)){
+        if(Physics.Raycast(up, upDirVec, out hit, detectionDist) && Physics.Raycast(down, downDirVec, out hit, detectionDist)){
+            if(Physics.Raycast(forward, forwardDirVec, out hit, detectionDist)){
+                raycastOffset -= Vector3.forward * droneCorrectionConstant;
+            }
+            else{
+                raycastOffset += Vector3.forward * droneCorrectionConstant;
+            }
+        }
+        else if(Physics.Raycast(up, upDirVec, out hit, detectionDist)){
             raycastOffset -= Vector3.up * droneCorrectionConstant;
         }
-        if(Physics.Raycast(down, downDirVec, out hit, detectionDist)){
+        else if(Physics.Raycast(down, downDirVec, out hit, detectionDist)){
             raycastOffset += Vector3.up * droneCorrectionConstant;
         }
 
-        // Debug.Log(raycastOffset);
+        Debug.Log(raycastOffset);
+        Debug.Log(rb.velocity);
+        Debug.Log(hit.collider);
         rb.AddForce(raycastOffset);
+    }
+
+    void ResetVelocity(){
+        if(counter >= 200){
+            if(enableVelocityControlling){
+                Vector3 temp = rb.velocity;
+                rb.velocity = new Vector3(temp.x/1.03f, temp.y/1.1f, temp.z/1.05f);
+            }
+            counter = 0;
+        }
+        counter++;
     }
 }

@@ -26,9 +26,4 @@ public class DataManager : MonoBehaviour
         catch(Exception e){
         }
     }
-
-    public void Disable()
-    {
-        menu.SetActive(false);
-    }
 }
