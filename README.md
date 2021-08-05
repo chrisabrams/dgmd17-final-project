@@ -1,5 +1,7 @@
 # Drone Race Course
 
+![GIF](https://media.giphy.com/media/aViVv0BL8UiX0Jq9pI/giphy.gif)
+
 ## Setting up Unity
 
 In Unity Hub, under the installs tab, add a new install: `2020.3.14f1`. This is the latest LTS at the time of this project creation, everything should support this version. You'll be asked which targets to install; you really only need the OS you are running (Windows support for Windows, etc).
