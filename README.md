@@ -18,6 +18,6 @@ If you don't have Visual Studio or Visual Studio Code, I recommend installing on
 
 ## Project Resources
 
-[Paper / Report](https://docs.google.com/document/d/11JtSV4KBW5OCLFkRRMnZL66Bg5gOwMjH_syZ4cxcdXM/edit?usp=sharing)
-[Presentation Slides](https://docs.google.com/presentation/d/1gmr0C-JXrMalLmwPT8HH0lXfkOh1Kh9VBx0AU_PdyCM/edit?usp=sharing)
-[Video](https://www.youtube.com/watch?v=Ccjmokj2yxM)
+- [Paper / Report](https://docs.google.com/document/d/11JtSV4KBW5OCLFkRRMnZL66Bg5gOwMjH_syZ4cxcdXM/edit?usp=sharing)
+- [Presentation Slides](https://docs.google.com/presentation/d/1gmr0C-JXrMalLmwPT8HH0lXfkOh1Kh9VBx0AU_PdyCM/edit?usp=sharing)
+- [Video](https://www.youtube.com/watch?v=Ccjmokj2yxM)
